@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Spring-Interceptor" />
+        <module name="Spring-Annotation" />
+        <module name="Spring-Swagger" />
+        <module name="Spring-AOP" />
+        <module name="Spring-Filter" />
+        <module name="Spring-AI" />
+        <module name="Spring-Schedule" />
+        <module name="Spring-Redis-Lock" />
+        <module name="Spring-Redis" />
+        <module name="Spring-Docker" />
+        <module name="Spring-CRUD" />
+        <module name="Spring-CRUD-Plus" />
+        <module name="Spring-Mail" />
+        <module name="Spring-Async" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Spring-AI" options="-parameters" />
+      <module name="Spring-AOP" options="-parameters" />
+      <module name="Spring-Annotation" options="-parameters" />
+      <module name="Spring-Async" options="-parameters" />
+      <module name="Spring-CRUD" options="-parameters" />
+      <module name="Spring-CRUD-Plus" options="-parameters" />
+      <module name="Spring-Docker" options="-parameters" />
+      <module name="Spring-Filter" options="-parameters" />
+      <module name="Spring-Interceptor" options="-parameters" />
+      <module name="Spring-Mail" options="-parameters" />
+      <module name="Spring-Redis" options="-parameters" />
+      <module name="Spring-Redis-Lock" options="-parameters" />
+      <module name="Spring-Schedule" options="-parameters" />
+      <module name="Spring-Swagger" options="-parameters" />
+    </option>
+  </component>
+</project>

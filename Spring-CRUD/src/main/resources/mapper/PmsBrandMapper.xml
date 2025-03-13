@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yingzi.crudMybatis.dao.PmsBrandMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yingzi.crudMybatis.model.entity.PmsBrand">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="first_letter" property="firstLetter" />
+        <result column="sort" property="sort" />
+        <result column="factory_status" property="factoryStatus" />
+        <result column="show_status" property="showStatus" />
+        <result column="product_count" property="productCount" />
+        <result column="product_comment_count" property="productCommentCount" />
+        <result column="logo" property="logo" />
+        <result column="big_pic" property="bigPic" />
+        <result column="brand_story" property="brandStory" />
+    </resultMap>
+
+<!--    默认分页查询-->
+    <select id="pageList" resultMap="BaseResultMap">
+        select *
+        from pms_brand
+        limit #{pageNum}, #{pageSize}
+    </select>
+
+<!--    根据id查询-->
+    <select id="selectById" resultMap="BaseResultMap">
+        select *
+        from pms_brand
+        where id = #{id}
+    </select>
+
+<!--    根据id删除-->
+    <delete id="deleteById" parameterType="java.lang.Long">
+        delete
+        from pms_brand
+        where id = #{id}
+    </delete>
+
+<!--    插入-->
+    <insert id="insert" parameterType="com.yingzi.crudMybatis.model.entity.PmsBrand">
+        insert into pms_brand (
+            name, first_letter, sort, factory_status, show_status,
+            product_count, product_comment_count, logo, big_pic, brand_story
+        )
+        values (
+            #{name}, #{firstLetter}, #{sort}, #{factoryStatus}, #{showStatus},
+            #{productCount}, #{productCommentCount}, #{logo}, #{bigPic}, #{brandStory}
+        )
+    </insert>
+
+<!--    更新-->
+    <update id="updateById" parameterType="com.yingzi.crudMybatis.model.entity.PmsBrand">
+        update pms_brand
+        <set>
+            <if test="name != null">name = #{name},</if>
+            <if test="firstLetter != null">first_letter = #{firstLetter},</if>
+            <if test="sort != null">sort = #{sort},</if>
+            <if test="factoryStatus != null">factory_status = #{factoryStatus},</if>
+            <if test="showStatus != null">show_status = #{showStatus},</if>
+            <if test="productCount != null">product_count = #{productCount},</if>
+            <if test="productCommentCount != null">product_comment_count = #{productCommentCount},</if>
+            <if test="logo != null">logo = #{logo},</if>
+            <if test="bigPic != null">big_pic = #{bigPic},</if>
+            <if test="brandStory != null">brand_story = #{brandStory},</if>
+        </set>
+        where id = #{id}
+    </update>
+
+</mapper>

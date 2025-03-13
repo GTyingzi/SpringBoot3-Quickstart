@@ -1,0 +1,26 @@
+server:
+  port: 8091
+spring:
+  application:
+    name: Spring-Mail
+---
+spring:
+  #mail
+  mail:
+    # 个人邮箱
+    host: smtp.qq.com
+    # 发送邮件的邮箱地址
+    username: 2091945373@qq.com
+    # QQ邮箱获得的授权码
+    password: aadmomfccasjebfd
+    port: 465
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: true
+          auth: true
+          socketFactory:
+            class: javax.net.ssl.SSLSocketFactory
+          starttls:
+            enable: true

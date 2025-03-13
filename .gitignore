@@ -1,0 +1,15 @@
+# Project exclude paths
+/Spring-AI/target/
+/Spring-Annotation/target/
+/Spring-AOP/target/
+/Spring-Async/target/
+/Spring-CRUD/target/
+/Spring-CRUD-Plus/target/
+/Spring-Docker/target/
+/Spring-Filter/target/
+/Spring-Interceptor/target/
+/Spring-Mail/target/
+/Spring-Redis/target/
+/Spring-Redis-Lock/target/
+/Spring-Schedule/target/
+/Spring-Swagger/target/

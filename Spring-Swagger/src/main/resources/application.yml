@@ -1,0 +1,16 @@
+server:
+  port: 8080
+
+Spring:
+  application:
+    name: Spring-Swagger
+## 配置swagger文档的访问路径
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+# 配置日志级别
+logging:
+  level:
+    root: INFO
+    com.yingzi.swagger: DEBUG
