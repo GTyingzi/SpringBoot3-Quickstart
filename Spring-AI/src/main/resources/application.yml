@@ -3,7 +3,7 @@ server:
 spring:
   ai:
     openai:
-      api-key: "sk-dca23457ba6941999c5cf33f64cfaeb4" # 安全起见，从系统环境变量读取
+      api-key: "sk-xxx" # 安全起见，从系统环境变量读取
       base-url: https://api.deepseek.com
       chat:
         options:

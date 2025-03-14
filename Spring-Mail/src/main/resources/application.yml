@@ -12,7 +12,7 @@ spring:
     # 发送邮件的邮箱地址
     username: 2091945373@qq.com
     # QQ邮箱获得的授权码
-    password: aadmomfccasjebfd
+    password: xxx
     port: 465
     properties:
       mail:
