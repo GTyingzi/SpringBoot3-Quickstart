@@ -23,7 +23,6 @@
         <module>Spring-Mail</module>
         <module>Spring-Schedule</module>
         <module>Spring-Docker</module>
-        <module>Spring-Github-Action</module>
     </modules>
 
     <parent>
