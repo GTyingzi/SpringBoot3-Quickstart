@@ -23,6 +23,7 @@
         <module>Spring-Mail</module>
         <module>Spring-Schedule</module>
         <module>Spring-Docker</module>
+        <module>Spring-Retry</module>
     </modules>
 
     <parent>

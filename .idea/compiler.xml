@@ -9,9 +9,9 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Spring-Interceptor" />
         <module name="Spring-Annotation" />
+        <module name="Spring-Retry" />
         <module name="Spring-Swagger" />
         <module name="Spring-AOP" />
-        <module name="Spring-Github-Action" />
         <module name="Spring-Filter" />
         <module name="Spring-AI" />
         <module name="Spring-Schedule" />
@@ -24,6 +24,9 @@
         <module name="Spring-Async" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Spring-Github-Action" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
@@ -35,11 +38,11 @@
       <module name="Spring-CRUD-Plus" options="-parameters" />
       <module name="Spring-Docker" options="-parameters" />
       <module name="Spring-Filter" options="-parameters" />
-      <module name="Spring-Github-Action" options="-parameters" />
       <module name="Spring-Interceptor" options="-parameters" />
       <module name="Spring-Mail" options="-parameters" />
       <module name="Spring-Redis" options="-parameters" />
       <module name="Spring-Redis-Lock" options="-parameters" />
+      <module name="Spring-Retry" options="-parameters" />
       <module name="Spring-Schedule" options="-parameters" />
       <module name="Spring-Swagger" options="-parameters" />
     </option>
