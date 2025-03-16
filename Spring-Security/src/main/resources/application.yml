@@ -1,0 +1,30 @@
+server:
+  port: 8095
+spring:
+  application:
+    name: Spring-Security
+---
+spring:
+  thymeleaf:
+    # 设置Thymeleaf模板文件的前缀位置（默认是`src/main/resources/templates`）
+    prefix: classpath:/templates/
+    # 设置模板文件的后缀（默认是`.html`）
+    suffix: .html
+    # 设置模板模式（默认是HTML5，Thymeleaf 3中为`HTML`）
+    mode: HTML
+    # 开启模板缓存（开发时建议关闭，生产时开启）
+    cache: false
+---
+spring:
+    # DataSource Config
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mall_tiny?useUnicode=true&allowPublicKeyRetrieval=true&useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+---
+mybatis-plus:
+  #  mapper映射文件包扫描 (这里是对应 resources 的文件路径)
+  mapper-locations: classpath:/mapper/*.xml
+  #  实体类别名包扫描
+  type-aliases-package: com.yingzi.crudMybatisPlus.model.entity

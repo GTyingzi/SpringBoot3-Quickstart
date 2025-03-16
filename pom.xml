@@ -24,6 +24,8 @@
         <module>Spring-Schedule</module>
         <module>Spring-Docker</module>
         <module>Spring-Retry</module>
+        <module>Spring-Security</module>
+        <module>Spring-Thymeleaf</module>
     </modules>
 
     <parent>

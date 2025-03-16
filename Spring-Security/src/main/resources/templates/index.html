@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Main Page</title>
+</head>
+<body>
+<h2>Welcome to my page</span>!</h2>
+<a th:href="@{/security/admin}">进入admin页面</a>
+<br/>
+<a th:href="@{/security/admin/dashboard}">进入admin页面下的dashboard</a>
+<br/>
+<a th:href="@{/security/user}">进入user页面</a>
+<br/>
+<a th:href="@{/security/user/dashboard}">进入user页面下的dashboard</a>
+<br/>
+<a th:href="@{/security/adminOrUsername/info}"> 只有 ADMIN 角色或当前登录用户与请求的 username 一致才能访问</a>
+<br/>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<a th:href="@{/user-info/role-rule}"> 数据库设置：超级管理员可访问</a>
+
+
+<br/>
+<!-- Spring Security 默认提供注销端点-->
+<a th:href="@{/logout}">Logout</a>
+</body>
+</html>
+

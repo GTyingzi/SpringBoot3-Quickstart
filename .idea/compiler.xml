@@ -11,11 +11,13 @@
         <module name="Spring-Annotation" />
         <module name="Spring-Retry" />
         <module name="Spring-Swagger" />
+        <module name="Spring-Security" />
         <module name="Spring-AOP" />
         <module name="Spring-Filter" />
         <module name="Spring-AI" />
         <module name="Spring-Schedule" />
         <module name="Spring-Redis-Lock" />
+        <module name="Spring-Thymeleaf" />
         <module name="Spring-Redis" />
         <module name="Spring-Docker" />
         <module name="Spring-CRUD" />
@@ -44,7 +46,9 @@
       <module name="Spring-Redis-Lock" options="-parameters" />
       <module name="Spring-Retry" options="-parameters" />
       <module name="Spring-Schedule" options="-parameters" />
+      <module name="Spring-Security" options="-parameters" />
       <module name="Spring-Swagger" options="-parameters" />
+      <module name="Spring-Thymeleaf" options="-parameters" />
     </option>
   </component>
 </project>
