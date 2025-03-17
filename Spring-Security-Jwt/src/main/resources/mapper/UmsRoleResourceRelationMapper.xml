@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yingzi.securityJwt.dao.UmsRoleResourceRelationMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yingzi.securityJwt.model.entity.UmsRoleResourceRelation">
+        <id column="id" property="id" />
+        <result column="role_id" property="roleId" />
+        <result column="resource_id" property="resourceId" />
+    </resultMap>
+
+    <select id="listResourceInRoleId" resultType="com.yingzi.securityJwt.model.entity.UmsResource">
+        select
+            r.id,
+            r.create_time,
+            r.name,
+            r.url,
+            r.description,
+            r.category_id
+        from ums_role_resource_relation rrr
+        left join ums_resource r on rrr.resource_id = r.id
+        where rrr.role_id in
+        <foreach item="roleId" index="index" collection="roleIdList"
+                 open="(" separator="," close=")">
+            #{roleId}
+        </foreach>
+    </select>
+
+</mapper>

@@ -27,4 +27,4 @@ mybatis-plus:
   #  mapper映射文件包扫描 (这里是对应 resources 的文件路径)
   mapper-locations: classpath:/mapper/*.xml
   #  实体类别名包扫描
-  type-aliases-package: com.yingzi.crudMybatisPlus.model.entity
+  type-aliases-package: com.yingzi.security.model.entity

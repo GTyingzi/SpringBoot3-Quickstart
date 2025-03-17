@@ -26,6 +26,7 @@
         <module>Spring-Retry</module>
         <module>Spring-Security</module>
         <module>Spring-Thymeleaf</module>
+        <module>Spring-Security-Jwt</module>
     </modules>
 
     <parent>
@@ -46,6 +47,7 @@
         <mybatis-spring-boot-starter.version>3.0.3</mybatis-spring-boot-starter.version>
         <mybatis-plus-boot-starter.version>3.5.5</mybatis-plus-boot-starter.version>
         <mybatis-spring.version>3.0.3</mybatis-spring.version>
+        <jjwt.version>4.4.0</jjwt.version>
     </properties>
 
     <dependencies>
@@ -62,6 +64,7 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
+
     </dependencies>
 
     <dependencyManagement>
