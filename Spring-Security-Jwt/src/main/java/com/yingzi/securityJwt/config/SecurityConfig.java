@@ -8,14 +8,24 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.authorization.AuthorizationDecision;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.access.intercept.RequestAuthorizationContext;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.util.AntPathMatcher;
+
+import java.util.List;
+import java.util.function.Supplier;
+
 
 /**
  * @author yingzi
@@ -25,7 +35,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 public class SecurityConfig {
 
-    private static final String[] URL_WHITELIST = {"/admin/login",
+    private static final String[] URL_WHITELIST = {"/admin/login","/admin/logout",
             "/admin/list", "/admin/list/resource"
     };
 
@@ -81,13 +91,29 @@ public class SecurityConfig {
                 // 使用无状态session，即不使用session缓存数据
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 // 设置白名单
-                .authorizeHttpRequests(auth -> auth.requestMatchers(URL_WHITELIST).permitAll().anyRequest().authenticated())
+                .authorizeHttpRequests(auth -> {
+                    auth.requestMatchers(URL_WHITELIST).permitAll();
+                    auth.requestMatchers(new AntPathRequestMatcher("/**")).access(this::hasAccess);
+                    auth.anyRequest().authenticated();
+                })
                 // 异常处理器
                 .exceptionHandling(exception -> exception.authenticationEntryPoint(jwtAuthenticationEntryPoint).accessDeniedHandler(jwtAccessDeniedHandler))
                 // 添加jwt过滤器
                 .authenticationProvider(authenticationProvider()).addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
+    }
+
+    private AuthorizationDecision hasAccess(Supplier<Authentication> authenticationSupplier, RequestAuthorizationContext requestAuthorizationContext) {
+        // 获取请求路径
+        String requestPath = requestAuthorizationContext.getRequest().getRequestURI();
+        // 获取用户列表
+        List<String> userAuthorities = authenticationSupplier.get().getAuthorities().stream()
+                .map(GrantedAuthority::getAuthority)
+                .toList();
+        AntPathMatcher antPathMatcher = new AntPathMatcher();
+        boolean match = userAuthorities.stream().anyMatch(authority -> antPathMatcher.match(authority, requestPath));
+        return new AuthorizationDecision(match);
     }
 
 

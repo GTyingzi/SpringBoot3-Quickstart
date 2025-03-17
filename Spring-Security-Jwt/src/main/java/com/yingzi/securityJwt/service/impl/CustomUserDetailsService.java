@@ -9,7 +9,7 @@ import com.yingzi.securityJwt.model.entity.UmsResource;
 import com.yingzi.securityJwt.model.entity.UmsRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -70,8 +70,9 @@ public class CustomUserDetailsService implements UserDetailsService {
             List<Long> roleIdList = umsRoleList.stream().map(UmsRole::getId).toList();
             List<UmsResource> umsResourceList = umsRoleResourceRelationMapper.listResourceInRoleId(roleIdList);
             if (CollectionUtils.isNotEmpty(umsResourceList)) {
-                List<String> resourceList = umsResourceList.stream().map(UmsResource::getUrl).toList();
-                return AuthorityUtils.commaSeparatedStringToAuthorityList(String.join(",", resourceList));
+                return umsResourceList.stream()
+                        .map(resource -> new SimpleGrantedAuthority(resource.getUrl()))
+                        .collect(Collectors.toList());
             }
         }
         throw new UsernameNotFoundException("用户暂未任何权限");

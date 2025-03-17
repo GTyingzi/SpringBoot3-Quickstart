@@ -24,7 +24,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/admin")
-public class UserController {
+public class AdminController {
 
     @Resource
     private JwtUtil jwtUtil;
