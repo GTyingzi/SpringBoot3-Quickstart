@@ -1,0 +1,9 @@
+server:
+  port: 8098
+Spring:
+  application:
+    name: Spring-Elasticsearch
+  elasticsearch:
+    url: https://localhost:9200
+    username: elastic
+    password: yingzi

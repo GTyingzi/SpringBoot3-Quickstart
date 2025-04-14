@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Spring-Security-Jwt" />
+        <module name="Spring-Webflux" />
         <module name="Spring-Interceptor" />
         <module name="Spring-Annotation" />
         <module name="Spring-Retry" />
@@ -18,12 +19,14 @@
         <module name="Spring-AI" />
         <module name="Spring-Schedule" />
         <module name="Spring-Redis-Lock" />
+        <module name="Spring-MCP" />
         <module name="Spring-Thymeleaf" />
         <module name="Spring-Redis" />
         <module name="Spring-Docker" />
         <module name="Spring-CRUD" />
         <module name="Spring-CRUD-Plus" />
         <module name="Spring-Mail" />
+        <module name="Spring-Elasticsearch" />
         <module name="Spring-Async" />
       </profile>
     </annotationProcessing>
@@ -40,8 +43,10 @@
       <module name="Spring-CRUD" options="-parameters" />
       <module name="Spring-CRUD-Plus" options="-parameters" />
       <module name="Spring-Docker" options="-parameters" />
+      <module name="Spring-Elasticsearch" options="-parameters" />
       <module name="Spring-Filter" options="-parameters" />
       <module name="Spring-Interceptor" options="-parameters" />
+      <module name="Spring-MCP" options="-parameters" />
       <module name="Spring-Mail" options="-parameters" />
       <module name="Spring-Redis" options="-parameters" />
       <module name="Spring-Redis-Lock" options="-parameters" />
@@ -51,6 +56,7 @@
       <module name="Spring-Security-Jwt" options="-parameters" />
       <module name="Spring-Swagger" options="-parameters" />
       <module name="Spring-Thymeleaf" options="-parameters" />
+      <module name="Spring-Webflux" options="-parameters" />
     </option>
   </component>
 </project>

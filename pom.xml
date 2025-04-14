@@ -27,12 +27,15 @@
         <module>Spring-Security</module>
         <module>Spring-Thymeleaf</module>
         <module>Spring-Security-Jwt</module>
+        <module>Spring-MCP</module>
+        <module>Spring-Webflux</module>
+        <module>Spring-Elasticsearch</module>
     </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.9</version>
+        <version>3.3.10</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -42,6 +45,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <springdoc-openapi-starter-webmvc-ui.version>2.0.2</springdoc-openapi-starter-webmvc-ui.version>
         <spring-ai-bom.version>1.0.0-M5</spring-ai-bom.version>
+        <spring-ai.version>1.0.0-M6</spring-ai.version>
         <lombok.version>1.18.32</lombok.version>
         <mysql-connector.version>8.0.33</mysql-connector.version>
         <mybatis-spring-boot-starter.version>3.0.3</mybatis-spring-boot-starter.version>

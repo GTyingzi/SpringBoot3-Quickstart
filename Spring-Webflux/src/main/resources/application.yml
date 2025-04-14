@@ -1,0 +1,5 @@
+server:
+  port: 8097
+Spring:
+  application:
+    name: Spring-Webflux
